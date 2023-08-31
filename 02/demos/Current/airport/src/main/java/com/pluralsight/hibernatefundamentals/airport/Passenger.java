@@ -10,10 +10,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PASSENGERS")
+@SecondaryTable(name = "ADDRESSES",
+		pkJoinColumns = @PrimaryKeyJoinColumn(name = "PASSENGER_ID", referencedColumnName = "ID"))
 public class Passenger {
 
 	@Id
@@ -30,9 +34,13 @@ public class Passenger {
 	@OneToMany(mappedBy = "passenger")
 	private List<Ticket> tickets = new ArrayList<>();
 
-	public Passenger(int id, String name) {
+	@Column(name = "PASSENGER_ADDRESS", table = "ADDRESSES", columnDefinition = "varchar(50) not null")
+	String address;
+
+	public Passenger(int id, String name, String address) {
 		this.id = id;
 		this.name = name;
+		this.address = address;
 	}
 
 	public Passenger() {
@@ -68,5 +76,13 @@ public class Passenger {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

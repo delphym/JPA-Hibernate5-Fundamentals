@@ -17,9 +17,9 @@ public class Main {
 
 		Airport airport = new Airport(1, "Henri Coanda");
 
-		Passenger john = new Passenger(1,"John Smith");
+		Passenger john = new Passenger(1,"John Smith", "3 Flower St, Boston");
 		john.setAirport(airport);
-		Passenger mike = new Passenger(2,"Mike Johnson");
+		Passenger mike = new Passenger(2,"Mike Johnson", "151 Cambridge Tce, Christchurch");
 		mike.setAirport(airport);
 
 		airport.addPassenger(john);
