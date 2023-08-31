@@ -10,7 +10,7 @@ import com.pluralsight.hibernatefundamentals.airport.Ticket;
 public class Main {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernatefundamentails.m02.ex01");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernatefundamentals.m02.ex01");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 

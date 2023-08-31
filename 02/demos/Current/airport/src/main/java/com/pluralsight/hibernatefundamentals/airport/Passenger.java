@@ -20,7 +20,6 @@ public class Passenger {
 	@Column(name = "ID")
 	private int id;
 
-	@Id
 	@Column(name ="NAME")
 	private String name;
 
